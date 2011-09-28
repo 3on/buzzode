@@ -1,0 +1,15 @@
+{
+  "transmission":
+  {
+    "url"             : "{TRANSMISSION RPC SERVER}",
+    "user"            : "user",
+    "password"        : "password",
+    "download-dir"    : "/home/buzz-sat/downloads"
+  },
+  "parameters":
+  {
+    "mothership-url"  : "http://localhost:8000/",
+    "min-free-space"  : "10240",
+    "max-torrents"    : -1
+  }
+}

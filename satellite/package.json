@@ -1,0 +1,11 @@
+{
+    "name": "buzzode-satellite"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express" : "2.4.6"
+    , "jade"    : ">= 0.0.1"
+    , "request" : ">=2.1.0"
+    , "connect-auth" : ">= 0.3.0"
+  }
+}
