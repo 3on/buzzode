@@ -1,0 +1,19 @@
+{
+    "boxes" : [
+        { "url": "http://MYSUPER.DNS/transmission/rpc/",
+            "satelliteUrl": "http://localhost:8008",
+            "name": "pandora",
+            "user": "dude",
+            "password": "secret" }
+    ],
+    "mail" : {
+        "user": "example@gmail.com",
+        "password": "example",
+        "host": "smtp.gmail.com",
+        "tls": "true",
+        "sender" : "BuZzBot <example@gmail.com>"
+    },
+    "general" : {
+        "siteUrl" : "http://localhost:8000"
+    }
+}

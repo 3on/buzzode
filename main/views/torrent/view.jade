@@ -1,0 +1,43 @@
+// Start basket form
+script(type='text/javascript', src='/js/basketActions.js')
+form(method='post', action='/basket/add/' + torrent.id)#basketForm
+    input(type='submit', value='Add')
+    a(href='#').basketHide [Cancel]
+    ul
+        - each file, i in torrent.files
+            li
+                input(type='checkbox', name='urls',
+                    value=box.satelliteUrl + '/download/' + torrent.id + '/' + i + '/' + file.name, checked='checked')
+                #{file.name}
+    input(type='submit', value='Add')
+    a(href='#').basketHide [Cancel]
+// End basket form
+
+h2 #{torrent.name}
+    a(href='#').basketShow [Basket]
+div.box=box.name
+
+h3 files
+- each file,i in torrent.files
+  - var stats = torrent.fileStats[i]
+  ul.file
+    li
+      form(method="POST", action=box.satelliteUrl+"/download/"+file.name, target="_blank")
+        input(type="hidden", name="user", value=user.username)
+        input(type="hidden", name="password", value=user.password)
+        input(type="hidden", name="torrentId", value=torrent.id)
+        input(type="hidden", name="fileId", value=i)
+        button #{file.nameShort}
+    li have: #{file.bytesCompleted}
+    li size #{file.length}
+    li wanted: #{stats.wanted}
+    li prority: #{stats.priority}
+
+h3 trackers [NEED ACL HERE]
+- each tracker in torrent.trackers
+  ul.tracker
+    li=tracker.announce
+    li=tracker.scrape
+
+h3
+  a(href="/torrent/"+dbId+"/hadopi") peers

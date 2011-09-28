@@ -1,0 +1,50 @@
+- var number = torrents.length
+h2 #{number} torrents
+
+// filter and sorts + order
+form(method='post', action='/session/torrents/filters-and-sort')
+  label filter: 
+  select(multiple='multiple', name='filters[]')
+    - each filter in filters
+      option(value=filter) #{filter}
+  label filter search:
+    input(type='search', name='search', placeholder='search filter')
+  
+  label filter tracker:
+    select(name='tracker')
+      - each tracker in trackers
+        option(value=tracker)=tracker
+  
+  label sort: 
+  select(name='sort')
+    - each sort in sorts
+      option(value=sort) #{sort}
+  
+  label order: 
+  span
+    input(type='radio', name='order', value='desc')
+    | desc
+  span 
+    input(type='radio', name='order', value='asc')
+    | asc
+  button update
+      
+// torrents listing
+- each torrent in torrents
+  ul
+    - var pourcent = torrent.pourcent + "%"
+    li
+      a(href="/torrent/"+torrent.id)=torrent.id
+    li
+      a(href="/torrent/"+torrent.id)=torrent.name
+    li=torrent.hashString
+    li=torrent.statusHuman
+    li Box: #{torrent.box.name}
+    li=torrent.addedDateHuman
+    li=pourcent
+    li Total: #{torrent.sizeWhenDoneHuman}
+    li Need: #{torrent.leftUntilDoneHuman}
+    li peers: #{torrent.peersConnected}
+    li finised: #{torrent.isFinished}
+    li private: #{torrent.isPrivate}
+    li ratio: #{torrent.uploadRatio}

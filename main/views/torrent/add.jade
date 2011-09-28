@@ -1,0 +1,19 @@
+script(type='text/javascript', src='/js/addForm.js')
+- if (error)
+    div#errorMessage #{info}
+- else if (info)
+    div#infoMessage #{info}
+form(method='post', action='/torrent/add', enctype='multipart/form-data')#torrentAdd
+    ul(style='list-style-type:none;')
+        li
+            input(type='radio', name='feedType', value='url', checked='checked')#urlR
+            label(for='urlR') By URL
+        li
+            input(type='radio', name='feedType', value='upload')#uploadR
+            label(for='uploadR') By Upload
+    label(for='url')#fileLab File:
+    br
+    input(type='text', name='url', size='64')#url
+    input(type='file', name='upload')#upload
+    br
+    input(type='submit', value='Add')

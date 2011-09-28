@@ -1,0 +1,12 @@
+{
+  "en":
+  [
+     "Torrent is stopped"
+    ,"Queued to check files"
+    ,"Checking files"
+    ,"Queued to download"
+    ,"Downloading"
+    ,"Queued to seed"
+    ,"Seeding"
+  ]
+}

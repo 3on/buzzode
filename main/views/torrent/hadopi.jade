@@ -1,0 +1,19 @@
+h2
+  a(href="/torrent/" + torrent.id)=torrent.name
+div.box=box.name
+
+h3 #{torrent.peers.length} peers
+- each peer in torrent.peers
+  ul.peer
+    -if(peer.geoip)
+      li
+        - var country = peer.geoip.country_code.toLowerCase()
+        img(src='/images/countries/' + country + '.png', alt=country)
+        li=peer.geoip.country_name
+        - if(peer.geoip.city)
+          li=peer.geoip.city
+    li=peer.address
+    li=peer.clientName
+    li=peer.isEncrypted
+    li=peer.rateToClient
+    li=peer.rateToPeer

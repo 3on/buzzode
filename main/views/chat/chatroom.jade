@@ -1,0 +1,8 @@
+script(type='text/javascript', src='/js/chatroom.js')
+h3 Wailing Wall
+ul#msgList(style='list-style-type : none;')
+
+form#sendForm(method='post', action='/chat/send')
+    input#msgBox(type='text', name='message')
+    input#submitButton(type='submit', value='Send')
+

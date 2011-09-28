@@ -1,0 +1,17 @@
+- each user in users
+  ul
+    li.username= user.username
+    li.password= user.password
+    li.email= user.email
+    li.valid= user.valid
+    li.createdAt= user.createdAt
+    li.updatedAt= user.updatedAt
+    li.deletedAt= user.deletedAt
+    li.valid
+      - if (user.valid == "1")
+        a.valid(href="/desactivate/"+user.id
+        ) Desactivate
+      - else
+        a.unvalid(href="/activate/"+user.id) Activate
+    li.rights
+      a(href="/user/"+user.id+"/rights") Rights

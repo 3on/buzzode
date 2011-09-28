@@ -1,0 +1,24 @@
+!!! 5
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='shortcut icon', href='/images/buzz.png')
+        script(type='text/javascript', src='/js/lib/jquery-1.6.2.min.js')
+    body
+        - if (!locals.disabledChat)
+            div#chat
+              include chat/chatroom
+        ul#menu
+          li
+            a(href="/") BuZz
+          li
+            a(href="/torrents") All torrents
+          li
+            a(href="/torrent/add") Add torrent
+          li
+            a(href="/basket/view") Basket
+          li
+            a(href="/requests") Requests
+        
+        div#main!= body

@@ -1,0 +1,10 @@
+script(type='text/javascript', src='/js/basketActions.js')
+h2
+    a(href='/basket/empty') Empty basket
+ul
+    - each item in list
+        li 
+            - var urls = item.urlList.replace(/\n/g, '<br/>');
+            form(method='post', action='/basket/remove/' + item.id).basketRm
+                input(type='submit', value='Remove')
+            !{urls}

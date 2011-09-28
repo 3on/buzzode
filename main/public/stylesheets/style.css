@@ -1,0 +1,41 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#chat {
+    float : right;
+    border : 1px solid black;
+    padding : 5px;
+    width : 40%;
+}
+
+#msgList {
+    max-height : 300px;
+    overflow : auto;
+}
+
+.chatAuthor {
+    font-weight : bold;
+    color : blue;
+}
+
+#errorMessage {
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    width : 100%;
+    background-color : rgba(255, 50, 50, 0.5);
+}
+
+#infoMessage {
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    width : 100%;
+    background-color : rgba(50, 255, 50, 0.5);
+}

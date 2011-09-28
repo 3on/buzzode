@@ -1,0 +1,37 @@
+form(action="/request/add", method="post")
+  ul.form
+    li.field
+      label
+        input#name(placeholder="name", name="name")
+    li.field
+      label
+        select(name="kind")
+          - each val, key in KIND
+            option(name=key)= val
+    li.field
+      label
+        select(name="language")
+          - each val, key in LANGUAGE
+            option(name=key)= val
+    li.field
+      label
+        select(name="quality")
+          - each val, key in QUALITY
+            option(name=key)= val    
+    li.button
+      button Please add this
+
+- each r in requests
+  ul
+    li.name= r.name
+    li.kind= KIND[r.kind]
+    li.language= LANGUAGE[r.language]
+    li.quality= QUALITY[r.quality]
+    li.user= r.UserId
+    li.createdAt= r.createdAt
+    li.updatedAt= r.updatedAt
+    li.answered
+      - if (r.answered == 0)
+        a.answered(href="/request/"+r.id+"/answered") Answer
+      - else
+        a.unanswered(href="/request/"+r.id+"/unanswered") Unanswer

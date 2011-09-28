@@ -1,0 +1,21 @@
+h1= user.username
+ul
+    - each right in rights
+        li= right.name
+            - if (right.BoxId != null)
+                |  on box #{right.BoxId}
+            - else
+                |  on all boxes
+            a(href='/user/' + user.id + '/rights/delete/' + right.id)  [Delete]
+    li
+        form(method='post', action='/user/' + user.id + '/rights/add')
+            label(for='role') Role 
+            select(id='role', name='role')
+                - each role in roles
+                    option(value=role.id) #{role.name}
+            label(for='box')  on box 
+            select(id='box', name='box')
+                option(value=0) ALL (null)
+                - each box in boxes
+                    option(value=box.id)= box.name
+            input(type='submit', value='Add')
